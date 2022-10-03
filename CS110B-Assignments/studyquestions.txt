@@ -1,0 +1,203 @@
+1. True/False: an int uses 4 bytes in memory on all systems.
+
+True
+
+2. True/False: a double typically offers better precision than a float.
+
+True
+
+3. True/False: The following two statements are equivalent assuming isPair is a variable of type bool:
+
+    if (isPair)
+    if (isPair == true)
+
+    True
+
+4. Provide a value we could put in the blank so that the value of x will be 20 after the code snippet.
+
+    int x = _____;
+    x *= 4;
+
+    int x = 5;
+
+5. Provide a value we could put in the blank so that the value of x will be 7 after the code snippet.
+
+    int x = _____;
+    x = x % 10;
+
+    int x = 70;
+
+6. What is the error in the code below:
+
+    string slogan = 'Go Giants!';
+
+    It should be string slogan = "Go Giants!"; - '' is for characters in cpp.
+
+7. What is a potential problem with the code below:
+
+    int x=4.5;
+
+    an int does not have any units of precision - the .5 will be truncated - use float or double instead as appropriate.
+
+8. Write a C++ code snippet to input a whole number from the user and output double the number to the screen.  
+
+    int userNum;
+    int outNum;
+
+    cin >> userNum;
+    outNum = userNum * 2;
+    cout << outNum;
+
+9. True/False.  Assume x is an int which has been declared and assigned a valid value.  The value of x is guaranteed to change after this code snippet:
+
+    if (x<0)
+    x--;
+    else 
+    x++;
+
+    //True
+
+10. Consider the below code snippet.  Will it compile?  What is a likely error?
+
+    int score = 0;
+    if (score = 0)
+    cout << "We had a shutout today!\n";
+
+    //The code is performing assignment rather than checking for equivalence.
+
+11. Write a loop which prints out the even numbers from 0-100, including 0 and 100, to the screen.   
+
+    for (int i = 0; i <= 100; i++) {
+        if(i % 2 == 0){
+            cout << i << endl;
+        }
+    }
+
+12. Same as Question 11, but count down from 100 to 0, even numbers only.
+
+int main() {
+
+    for (int i = 100; i >= 0; i--) {
+        if(i % 2 == 0){
+            cout << i << endl;
+        }
+    }
+    }
+
+13. True/False: every while loop is guaranteed to execute at least one time.
+    //False - the while (condition) condition may be false
+
+14. Assume there is a file named "cards.txt" in the current directory which contains 3 ints.  
+Write a code snippet which reads in the three ints and outputs their average (mean) to the screen.
+
+    int main() {
+        int card;
+        int cardTotal;
+        int cardMean;
+
+        ifstream inputFile;
+        inputFile.open("cards.txt");
+
+        if(inputFile.is_open()) {
+            while (inputFile >> card){
+                cardTotal += card;
+            }
+            cardMean = cardTotal / 3;
+        }
+
+        cout << cardMean << endl;
+    }
+
+
+15. True/False: the following function prototype takes an array and its size as its parameters.  
+If you change the value of the array's elements within the function, the changes persist after the function returns.
+
+    void sortCards(int cards[], int size);
+
+    //True;
+
+16a. Write a function which takes an int array and its size as parameters.  
+It returns an int indicating how many multiples of 3 are contained in the array.  
+For example, if the array contains {2, 6, 8} your function should return 1.  
+If the array contains {3, 10, 5, 6} your function should return 2.  Here is the function prototype:
+
+    // int array[]: array to search
+    // size: number of elements in the array
+    int countMult(const int array[], int size);
+
+    int multipleHits;
+
+    for(int i = 0; i < size; i++) {
+        if (i % 3 == 0) {
+            multipleHits += 1;
+        }
+    }
+
+16b. Demonstrate that your function from 16a works by writing a main() function which declares an array of ints, 
+gives the array some values, calls the function with the array and its size as parameters, and 
+prints out the function's return value.  
+
+    #include <iostream>
+
+    using namespace std;
+
+    int countMult(const int array[], int size);
+
+    int main() {
+        int size = 5;
+        const int array[] = {3,6,7,9,11};
+        
+
+        cout << countMult(array, size);
+    }
+    int countMult(const int array[], int size) {
+        
+        
+        int multipleHits = 0;
+
+        for(int i = 0; i <= size; i++) {
+            if (array[i] % 3 == 0) {
+                multipleHits++;
+            }
+        }
+        return multipleHits;
+
+17. Consider the following code snippet.  Will it compile?  Is there anything wrong with it?
+
+    int cards[3];
+    cards[1] = 2;
+    cards[2] = 4;
+    cards[3] = 7;
+
+18. Assume the 2D array below has been assigned valid integer values.  
+NUM_PLAYERS and NUM_CARDS are global const ints with positive values.  
+Write a code snippet which computes the total of all the elements in the 2D array.
+
+    int cards[NUM_PLAYERS][NUM_CARDS];
+
+19. Assuming an int is size 4 bytes, what is the size in memory of the below array:
+
+    int cards[10] = {7, 4, 7, 5, 7};
+
+20. In the array from question 19, what is the value of the below elements:
+
+    cards[1] == 4
+    cards[8] == 0
+
+Assume you have an array with 128 integers which is sorted from lowest to highest.  
+
+21a. You are searching for a value which is contained in the array using the binary search algorithm.  
+What is the minimum number of comparisons it will take? 
+
+21b. You are searching for a value which is contained in the array using the linear search algorithm.  
+What is the maximum number of comparisons it will take? 
+
+22. True/False: in order to use the linear search algorithm on an array, the array must be sorted
+
+23. True/False: a bubble sort on an integer array is guaranteed to do at least one swap.
+
+24. Write a function which takes an array of ints and size of array as parameters, and 
+returns the maximum value in the array.  You do not need to demonstrate calling this function from main().  
+It must have the following signature:
+
+    int findMax(const int array[], int size);
