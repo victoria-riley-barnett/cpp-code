@@ -169,35 +169,76 @@ prints out the function's return value.
     cards[2] = 4;
     cards[3] = 7;
 
+    //cards[3] cannot be assigned to, as it is past the bounds of the array
+
 18. Assume the 2D array below has been assigned valid integer values.  
 NUM_PLAYERS and NUM_CARDS are global const ints with positive values.  
 Write a code snippet which computes the total of all the elements in the 2D array.
 
-    int cards[NUM_PLAYERS][NUM_CARDS];
+    int cards[NUM_PLAYERS][NUM_CARDS]; 
+
+        //Study questions: Victoria Barnett
+        #include <iostream>
+
+        using namespace std;
+
+        //global var
+        const int NUM_PLAYERS = 20;
+        const int NUM_CARDS = 5;
+
+        int main(){
+            int cards[NUM_PLAYERS][NUM_CARDS];
+            int total;
+
+            for(int i = 0; i < NUM_PLAYERS; ++i){
+                for(int j = 0; j < NUM_CARDS; ++j){
+                    total += cards[i][j];
+                }
+            }
+            cout << total;
+        }
+
 
 19. Assuming an int is size 4 bytes, what is the size in memory of the below array:
 
     int cards[10] = {7, 4, 7, 5, 7};
+
+    the array is size 40 - because it has room for 10 values even if only 5 are assigned.
+
 
 20. In the array from question 19, what is the value of the below elements:
 
     cards[1] == 4
     cards[8] == 0
 
+
 Assume you have an array with 128 integers which is sorted from lowest to highest.  
 
 21a. You are searching for a value which is contained in the array using the binary search algorithm.  
 What is the minimum number of comparisons it will take? 
+ 1 comparison is the minimum number (in the case the value is immediately found at the midpoint of array)
 
 21b. You are searching for a value which is contained in the array using the linear search algorithm.  
 What is the maximum number of comparisons it will take? 
+    The maximum number of comparisions a linear search of size N (128 here) is N, as the last value at arr[127] could be our target.
 
 22. True/False: in order to use the linear search algorithm on an array, the array must be sorted
+    False
 
 23. True/False: a bubble sort on an integer array is guaranteed to do at least one swap.
+    False - the integer array could already be sorted in the method the bubble swap has been setup to enforce (already sorted in ascending order for an ascending bubble sort, for example)
+
 
 24. Write a function which takes an array of ints and size of array as parameters, and 
 returns the maximum value in the array.  You do not need to demonstrate calling this function from main().  
 It must have the following signature:
 
     int findMax(const int array[], int size);
+    
+    int max;
+    for(int i = 0; i < size; ++i) {
+        if(array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;

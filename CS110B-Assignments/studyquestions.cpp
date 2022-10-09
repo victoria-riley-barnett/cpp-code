@@ -1,14 +1,22 @@
 //Study questions: Victoria Barnett
 #include <iostream>
+#include <iomanip>
+#include <unistd.h>
 
 using namespace std;
 
-int countMult(const int array[], int size);
-
-int main() {
-    int cards[3];
-    cards[1] = 2;
-    cards[2] = 4;
-    cards[3] = 7;
+void timer(int num){
+    int minutes = num;
+    int seconds = 0;
+    int totalSeconds = num * 60;
     
+    for(int i = totalSeconds; i > 0; --i){
+        cout << minutes << ":" << seconds << endl;
+        if (seconds == 0){
+            seconds += 60;
+            minutes--;
+        }
+        seconds--;
+        sleep(1);
+    }
 }
