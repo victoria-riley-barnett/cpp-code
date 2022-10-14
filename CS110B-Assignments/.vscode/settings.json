@@ -12,6 +12,10 @@
         "string_view": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "filesystem": "cpp",
+        "iosfwd": "cpp",
+        "complex": "cpp",
+        "ostream": "cpp"
     }
 }
