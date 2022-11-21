@@ -1,3 +1,7 @@
+//[rbarne34@hills CS110B]$ g++ assignment8.cpp
+//[rbarne34@hills CS110B]$ cat assignment8.cpp
+//Assignment 8: Riley Barnett
+//C-String manipulation
 #include <iostream>
 #include <cstring>
 
@@ -15,7 +19,7 @@ int lastIndexOf(char *s, char target){
     int hit;
     for(int i = 0; i < size; i++){
         if(s[i] == target){
-            hit = i;   
+            hit = i;
         }
     }
     if(hit != 0){
@@ -28,7 +32,7 @@ void reverse(char *s) {
     for(int i = 0, j = size - 1; i < j; i++, j--){
         char temp = s[i];
         s[i] = s[j];
-        s[j] = temp;        
+        s[j] = temp;
     }
 }
 void printer(char *s){
@@ -68,7 +72,7 @@ int findSubstring(char *s, char substring[]){
 }
 bool isPalindrome(char *s){
     int size = strlen(reinterpret_cast<const char*>(s));
-    int hits = 0;    
+    int hits = 0;
     for(int i = 0, j = size - 1; i < size; i++, j--){
         if (s[i] == s[j]){
             hits += 1;
@@ -101,3 +105,13 @@ int main(){
     cout << "\nSearching 'Gionts' for substring 'on', -1 means it was not found. Result at index: [" << findSubstring(s,substring) << ']' << endl;
     cout << "Is palindrome 'Hannah': " << isPalindrome(palStr) << "\nIs palindrome 'Alex': " << isPalindrome(nonpalStr) << endl;
 }
+/*
+[rbarne34@hills CS110B]$ ./a.out
+The last index of char t is: 4
+The reverse of the str is: stnaiG
+Replacing a in Giants with o: Gionts
+Searching 'Gionts' for substring 'on', -1 means it was not found. Result at index: [3]
+Is palindrome 'Hannah': 1
+Is palindrome 'Alex': 0
+[rbarne34@hills CS110B]$
+/*

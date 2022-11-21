@@ -16,6 +16,11 @@
         "filesystem": "cpp",
         "iosfwd": "cpp",
         "complex": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "istream": "cpp",
+        "typeinfo": "cpp",
+        "ios": "cpp",
+        "cstring": "cpp",
+        "sstream": "cpp"
     }
 }
