@@ -4,21 +4,25 @@
 using namespace std;
 
 int main(){
-    //Demonstrate your class works with a main() function that instantiates an array of three Rectangle objects, one for each room of a house, using the initializer list below.  
-    Rectangle house[] = { Rectangle(10, 12, (char *)"Living Room"), Rectangle(20, 20, (char *)"Bedroom"), Rectangle(8, 12, (char *)"Offce") };
-    //Then, use your setName() function to fix the name of “Offce” to “Office”. 
-    house[2].setName((char *)"Office");
-    //Finally, tell the user the name and area of each room, and the name of the room with the largest area.
-    int largest = 0;
-    for (int i = 0; i < 3; i++){
-        cout << "Room " << i + 1 << " is the ";
-        house[i].printName();
-        cout << " and has an area of " << house[i].getArea() << endl;
-        if (house[i].getArea() > house[largest].getArea())
-            largest = i;
-    }
-    cout << "The largest room is: ";
-    house[largest].printName();
-    cout << " with an area of " << house[largest].getArea() << endl;
+    Rectangle r1(10, 20, "r1");
+    Rectangle r2(30, 40, "r2");
+    Rectangle r3;
+    Rectangle r4;
+    r3 = r1;
+    r3.printName();
+    cout << " has an area of " << r3.getArea() << endl;
+    //Demonstrate correct return type to chain assignment in one line
+    r3 = r1 = r2;
+    r3.printName();
+    cout << " has an area of " << r3.getArea() << endl;
     return 0;
+
+
+    r3 = r1 > r2;
+    cout << "The rectangle with the greater area is " << endl;
+    r3.printName();
+
+    r4 = r1 < r2;
+    cout << "The rectangle with the lesser area is " << endl;
+    r4.printName();
 }
