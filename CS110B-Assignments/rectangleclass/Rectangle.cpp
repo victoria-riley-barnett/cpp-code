@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Rectangle.h"
 #include <cstring>
+#include <string>
 
 using namespace std;
 
-void Rectangle::initName(char *n)
+void Rectangle::initName(const char *n)
 {
     name = new char[strlen(n) + 1];
     strcpy(name, n);
@@ -12,12 +13,14 @@ void Rectangle::initName(char *n)
 Rectangle::Rectangle(){
     width = 0;
     length = 0;
-    name = (char *)"Default";
+    name = new char[1];
+    name[0] = '\0';
 }
-Rectangle::Rectangle(double w, double l, char *n){
+Rectangle::Rectangle(double w, double l, const char *n){
     width = w;
     length = l;
-    initName(n);
+    name = new char[strlen(n) + 1];
+    strcpy(name, n);
 }
 Rectangle::~Rectangle(){
     delete [] name;
@@ -36,7 +39,8 @@ void Rectangle::setLength(char *l){
 }
 void Rectangle::setName(char *n){
     delete [] name;
-    initName(n);
+    name = new char[strlen(n) + 1];
+    strcpy(name, n);
 }
 double Rectangle::getWidth() const{
     return width;

@@ -7,11 +7,11 @@ class Rectangle
     double width;
     double length;
     char *name;
-    void initName(char *n);
+    void initName(const char *);
   public:
     //constructors
     Rectangle();
-    Rectangle(double, double, char*);
+    Rectangle(double w, double l, const char *n);
     //destructor
     ~Rectangle();
     //setters
@@ -27,7 +27,7 @@ class Rectangle
     { std::cout << name; }
     int getArea() const
     { return width * length; }
-    Rectangle& Rectangle::operator=(const Rectangle& right){
+    Rectangle& operator=(const Rectangle &right){
         if (this != &right){
             delete [] name;
             width = right.width;
@@ -36,21 +36,11 @@ class Rectangle
         }
         return *this;
     }
-    Rectangle Rectangle::operator>(const Rectangle& right){
-        if (this != &right){
-            if (getArea() > right.getArea())
-                return *this;
-            else
-                return right;
-        }
+    bool operator>(const Rectangle &right) const{
+        return getArea() > right.getArea();
     }
-    Rectangle Rectangle::operator<(const Rectangle& right){
-        if (this != &right){
-            if (getArea() < right.getArea())
-                return *this;
-            else
-                return right;
-        }
+    bool operator<(const Rectangle &right) const{
+        return getArea() < right.getArea();
     }
 };
 #endif
