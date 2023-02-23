@@ -219,4 +219,41 @@ int main(){
     cout << "Rock on!\n";
     return 0;
 }
-
+/* SAMPLE OUTPUT:
+Welcome!  There are 4 tracks.
+Here are the tracks:
+1: One More Saturday Night
+2: Friday I'm in Love
+3: Sunday Morning Coming Down
+4: California Love
+Inserting a new track at position 5.
+Setting track 3 to 'Chaise Lounge'.
+Removing track 2.
+Here are the tracks:
+1: One More Saturday Night
+2: Chaise Lounge
+3: California Love
+4: Heaven Ain't Even a Place
+Now that our work, we can test our exception handling.
+We'll try to get a track that doesn't exist.
+ERROR: getEntry() using invalid position
+Now we'll test our improved insert function.
+We'll try to insert a track at position 101, just out of our static CHUNK_SIZE range.
+ERROR: insert() using invalid position
+Please enter the track number you'd like to view: 1
+Your track name is One More Saturday Night
+Go again? (y/n) y
+Please enter the track number you'd like to view: 2
+Your track name is Chaise Lounge
+Go again? (y/n) y
+Please enter the track number you'd like to view: 3
+Your track name is California Love
+Go again? (y/n) y
+Please enter the track number you'd like to view: 4
+Your track name is Heaven Ain't Even a Place
+Go again? (y/n) y
+Please enter the track number you'd like to view: 5
+ERROR: getEntry() using invalid position
+Your track name is No Track
+Go again? (y/n) n
+Rock on! */
