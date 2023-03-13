@@ -1,0 +1,67 @@
+[rbarne34@hills CS110B]$ mkdir circleclass
+[rbarne34@hills CS110B]$ cd circleclass/
+[rbarne34@hills circleclass]$ ls
+[rbarne34@hills circleclass]$ vim Circle.h
+[rbarne34@hills circleclass]$ vim Circle.cpp
+[rbarne34@hills circleclass]$ vim main.cpp
+[rbarne34@hills circleclass]$ ls
+Circle.cpp  Circle.h  main.cpp
+[rbarne34@hills circleclass]$ g++ main.cpp Circle.cpp
+[rbarne34@hills circleclass]$ ./a.out
+Enter the x value: 4
+Enter the y value: 4
+Enter the radius: 3
+X: 4
+Y: 4
+Radius: 3
+Area: 28.2743
+Enter new x for ptr: 5
+Enter new y for ptr: 5
+Enter new radius for ptr: 7
+X: 5
+Y: 5
+Radius: 7
+Area: 153.938
+Checking point 5, 5
+Point is in circle
+Checking point 10, 10
+Point is not in circle
+[rbarne34@hills circleclass]$ ./a.out
+Enter the x value: 2
+Enter the y value: 2
+Enter the radius: 1
+X: 2
+Y: 2
+Radius: 1
+Area: 3.14159
+Enter new x for ptr: 3
+Enter new y for ptr: 3
+Enter new radius for ptr: 2
+X: 3
+Y: 3
+Radius: 2
+Area: 12.5664
+Checking point 5, 5
+Point is not in circle
+Checking point 10, 10
+Point is not in circle
+[rbarne34@hills circleclass]$ ./a.out
+Enter the x value: 10
+Enter the y value: 5
+Enter the radius: 3
+X: 10
+Y: 5
+Radius: 3
+Area: 28.2743
+Enter new x for ptr: 10
+Enter new y for ptr: 7
+Enter new radius for ptr: 3
+X: 10
+Y: 7
+Radius: 3
+Area: 28.2743
+Checking point 5, 5
+Point is not in circle
+Checking point 10, 10
+Point is in circle
+[rbarne34@hills circleclass]$
