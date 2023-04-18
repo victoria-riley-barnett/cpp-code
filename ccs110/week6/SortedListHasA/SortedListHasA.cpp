@@ -66,23 +66,22 @@ int SortedListHasA<ItemType>::getPosition(const ItemType& anEntry) const
    // getPosition() correctly.  It should return either the position of the given 
    // entry, if it occurs in the sorted list, or the position where the entry 
    // would occur, but as a negative integer.  
-   int position = NULL;
-   if(!isEmpty())
-   {
-      for(int position = 1; position <= getLength(); position++)
-      {
-         if(listPtr->getEntry(position) == anEntry)
-         {
-            return position;
-         }
-         else if(listPtr->getEntry(position) > anEntry)
-         {
-            return -position;
-         }
-      }  // end for
-   }
    
-     // end if
+   for (int position = 1; position <= getLength(); position++)
+   {
+      if (anEntry == listPtr->getEntry(position))
+         return position;
+   }  // end for
+
+   int whereshoulditbe = 1;
+   for (int position = 1; position <= getLength(); position++)
+   {
+      if (anEntry < listPtr->getEntry(position))
+         return -whereshoulditbe;
+      whereshoulditbe++;
+   }  // end for
+
+   return -whereshoulditbe;
 }  // end getPosition
 
 //=====================

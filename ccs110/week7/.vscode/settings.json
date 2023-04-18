@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.json.liquid": "json",
+        "*.yaml.liquid": "yaml",
+        "*.md.liquid": "markdown",
+        "*.js.liquid": "liquid-javascript",
+        "*.css.liquid": "liquid-css",
+        "*.scss.liquid": "liquid-scss",
+        "stack": "cpp",
+        "queue": "cpp",
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "string_view": "cpp",
+        "__locale": "cpp"
+    }
+}

@@ -1,0 +1,13 @@
+╭─victoria on vbox in ~/code/cpp-code/ccs110/week7 on main✘✘✘ 23-04-09 - 13:55:03
+╰─Δ ./a.out
+Enter an infix expression: 43+2
+Sorry, this infix won't be valid for this calculator
+Please enter a valid infix expression where all operands are single digits and all parenthesis are balanced.
+Enter an infix expression: 5-2
+Postfix expression: 52-
+Result: 3
+╭─victoria on vbox in ~/code/cpp-code/ccs110/week7 on main✘✘✘ 23-04-09 - 13:55:10
+╰─Δ ./a.out
+Enter an infix expression: 3*3
+Postfix expression: 33*
+Result: 9

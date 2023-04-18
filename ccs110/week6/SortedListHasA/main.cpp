@@ -175,6 +175,7 @@ void listOpsTester(SortedListInterface<string>* listPtr)
 
 int main()
 {
+   /*
    ofstream outFile;
    outFile.open("output.txt");
    streambuf *coutbuf = cout.rdbuf();
@@ -192,6 +193,45 @@ int main()
 	cout << "\nTesting the List Operations:" << endl;
 	listOpsTester(listPtr);
 
+   For this assignment, implement a high score system using a sorted list data structure to 
+   sort scores from highest to lowest.  Your program should print out a list of scores, 
+   ask the user for a new score, insert the new score in the correct position, 
+   print out the new score list, and let the user keep entering scores and displaying the 
+   sorted list until the user quits.  If you wish, you can seed the high score list with a 
+   few dummy scores, ala vintage arcade games, or just start with an empty sorted list.  
+   */
+
+   char quit = 'n';
+   SortedListInterface<int>* intList = new SortedListHasA<int>();
+
+   // Seed the list with some dummy scores
+   intList->insertSorted(42);
+   intList->insertSorted(23);
+   intList->insertSorted(72);
+   intList->insertSorted(19);
+
+   int score;
+   cout << "Welcome to the High Score Tracker!" << endl;
+   cout << "The current high scores are: " << endl;
+   for (int i = 1; i <= intList->getLength(); i++)
+   {
+      cout << intList->getEntry(i) << ", ";
+   }
+   cout << endl;
+   cout << "Enter a score to add to the list, or enter a negative number to quit." << endl;
+   cin >> score;
+   while (score > 0)
+   {
+      intList->insertSorted(score);
+      cout << "The current high scores are: " << endl;
+      for (int i = 1; i <= intList->getLength(); i++)
+      {
+         cout << intList->getEntry(i) << ", ";
+      }
+      cout << endl << "Enter a score to add to the list, or enter a negative number to quit." << endl;
+      cin >> score;
+   }
+   cout << "Goodbye!" << endl;
    return 0;
 }  // end main
 
