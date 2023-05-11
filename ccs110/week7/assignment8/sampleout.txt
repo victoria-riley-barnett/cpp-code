@@ -1,0 +1,15 @@
+Note: the memory error kept occuring - however, I am detecting palindromes correctly.
+
+victoria on hills.ccsf.edu in ~/ccs110/assignment8 > g++ assignment8.cpp
+victoria on hills.ccsf.edu in ~/ccs110/assignment8 > ./a.out
+Enter a string: madam
+The string is a palindrome
+free(): double free detected in tcache 2
+Aborted (core dumped)
+victoria on hills.ccsf.edu in ~/ccs110/assignment8 > ./a.out
+Enter a string: dog
+The string is not a palindrome
+victoria on hills.ccsf.edu in ~/ccs110/assignment8 > ./a.out
+Enter a string: saippuakivikauppias
+The string is a palindrome
+victoria on hills.ccsf.edu in ~/ccs110/assignment8 >

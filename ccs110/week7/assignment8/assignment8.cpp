@@ -1,7 +1,6 @@
-// Victoria Barnett - CS 110C - Assignment 7 - 04/09/2023
+// Victoria Barnett - CS 110C - Assignment 8 - 04/18/2023
 #include <iostream>
 #include <string>
-#include <fstream>
 
 using namespace std;
 
@@ -104,7 +103,7 @@ public:
 Queue::Queue(int size) {
     this->size = size;
     queueArray = new int[size];
-    front = -1;
+    front = 0;
     rear = -1;
 }
 
@@ -168,73 +167,48 @@ char Queue::peekRear() {
 }
 
 //prototypes
-bool isPalindrome(string palindrome, Stack &stack, Queue &queue);
-bool QueueEqualsStack(Queue &queue, Stack &stack);
+bool isPalindrome(Stack s, Queue q, int length);
 
 int main(){
-    //vars
-    string palindrome;
-    Stack stack(100);
-    Queue queue(100);
-    bool isPalindromeBool;
+    string input;
+    int length;
 
-    //get input
     cout << "Enter a string: ";
-    getline(cin, palindrome);
+    getline(cin, input);
 
-    //check if palindrome
-    isPalindromeBool = isPalindrome(palindrome, stack, queue);
+    length = input.length();
 
-    //output
-    if (isPalindromeBool) {
+    Stack s(length);
+    Queue q(length);
+
+    for (int i = 0; i < length; i++) {
+        char c = input[i] - '0';
+        s.push(input[i]);
+        q.enqueue(input[i]);
+    }
+
+    if (isPalindrome(s, q, length)) {
         cout << "The string is a palindrome" << endl;
     }
     else {
         cout << "The string is not a palindrome" << endl;
     }
 
+    
     return 0;
 }
 
-bool isPalindrome(string palindrome, Stack &stack, Queue &queue) {
-    //vars
-    int i = 0;
-    int j = palindrome.length() - 1;
-    bool isPalindromeBool = true;
-
-    //loop through string
-    while (i < j) {
-        //push to stack
-        stack.push(palindrome[i]);
-        //enqueue to queue
-        queue.enqueue(palindrome[j]);
-        //increment i
-        i++;
-        //decrement j
-        j--;
-    }
-
-    //check if palindrome
-    isPalindromeBool = QueueEqualsStack(queue, stack);
-
-    return isPalindromeBool;
-}
-
-bool QueueEqualsStack(Queue &queue, Stack &stack) {
-    //vars
-    bool isPalindromeBool = true;
-
-    //loop through queue and stack
-    while (!queue.isEmpty() && !stack.isEmpty()) {
-        //check if equal
-        if (queue.peekFront() != stack.peek()) {
-            isPalindromeBool = false;
+bool isPalindrome(Stack s, Queue q, int length) {
+    while (!q.isEmpty()) {
+        if (q.peekFront() == s.peek()) {
+            q.dequeue();
+            s.pop();
         }
-        //dequeue from queue
-        queue.dequeue();
-        //pop from stack
-        stack.pop();
+        else {
+            return false;
+        }
     }
 
-    return isPalindromeBool;
+    return true;
 }
+
